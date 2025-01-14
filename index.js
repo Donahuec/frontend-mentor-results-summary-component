@@ -18,7 +18,6 @@ let count = 0;
 fetch("./data.json")
   .then((response) => response.json())
   .then((json) => {
-    console.log(json);
     json.forEach((metric) => {
       addMetric(metric);
       total += metric.score;

@@ -1,47 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Results summary component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./styles.css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Results summary component</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="sr-only">Frontend Mentor | Results summary component</h1>
+      <article class="card">
+        <section class="result">
+          <h2>Your Result</h2>
+          <div class="result-total">
+            <div class="score">76</div>
+            <div class="total">of 100</div>
+          </div>
+          <div class="result-text">
+            <h3 class="result-head">Great</h3>
+            <div class="result-description">
+              You scored higher than 65% of the people who have taken these
+              tests.
+            </div>
+          </div>
+        </section>
+        <section class="summary">
+          <h2>Summary</h2>
+          <div class="metrics">
+            <div class="metric">
+              <div>Reaction</div>
+              <div>80 / 100</div>
+            </div>
+            <div class="metric">
+              <div>Memory</div>
+              <div>92 / 100</div>
+            </div>
+            <div class="metric">
+              <div>Verbal</div>
+              <div>61 / 100</div>
+            </div>
+            <div class="metric">
+              <div>Visual</div>
+              <div>72 / 100</div>
+            </div>
+          </div>
 
-  Your Result
-  76
-  of 100
+          <button>Continue</button>
+        </section>
+      </article>
+    </main>
 
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
-
-  Reaction
-  80 / 100
-
-  Memory
-  92 / 100
-
-  Verbal
-  61 / 100
-
-  Visual
-  72 / 100
-
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </footer>
+  </body>
 </html>

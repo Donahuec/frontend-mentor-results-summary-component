@@ -35,7 +35,7 @@ Users should be able to:
 
 ## What I learned
 
-Learned about using `aspect-ratio` to create the circle while allowing variable width.
+- Learned about using `aspect-ratio` to create the circle while allowing variable width.
 
 ```
 .circle {
@@ -43,7 +43,7 @@ Learned about using `aspect-ratio` to create the circle while allowing variable 
   }
 ```
 
-Learned about using property values to allow transitions with gradients
+- Learned about using property values to allow transitions with gradients
 
 ```
 /* Allows transition on the gradient values */
@@ -75,6 +75,8 @@ button {
   }
 }
 ```
+
+- learned about using html templates
 
 ## Author
 

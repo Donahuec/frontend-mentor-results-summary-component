@@ -3,13 +3,19 @@ function addMetric(metric) {
     .getElementById("metric-template")
     .content.cloneNode(true);
 
-  template.getElementById("title").textContent = metric.category;
-  template.getElementById("score").textContent = metric.score;
-  template.getElementById("icon").src = metric.icon;
-  template.getElementById("metric").classList.add(metric.color);
+  // using a wrapper so that we can avoid duplicated ids
+  // and query using class names, which aren't available on a fragment
+  let wrapper = document.createElement("div");
+  wrapper.appendChild(template);
 
   let container = document.getElementById("metrics");
-  container.appendChild(template);
+  wrapper = container.appendChild(wrapper);
+  console.log(template);
+  window.temp = template;
+  wrapper.querySelector(".metric-title").textContent = metric.category;
+  wrapper.querySelector(".score").textContent = metric.score;
+  wrapper.querySelector(".icon").src = metric.icon;
+  wrapper.querySelector(".metric").classList.add(metric.color);
 }
 
 let total = 0;

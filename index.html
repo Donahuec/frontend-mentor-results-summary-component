@@ -14,6 +14,19 @@
 
     <title>Frontend Mentor | Results summary component</title>
   </head>
+  <template id="metric-template">
+    <div class="wrapper">
+      <div id="metric" class="metric">
+        <img id="icon" src="./assets/images/icon-reaction.svg" alt="" />
+        <div id="title" class="metric-title">Metric</div>
+        <div class="metric-score">
+          <span id="score" class="score">0</span>
+          <span class="divider">/</span>
+          <span class="total">100</span>
+        </div>
+      </div>
+    </div>
+  </template>
   <body>
     <main>
       <h1 class="sr-only">Frontend Mentor | Results summary component</h1>
@@ -21,7 +34,7 @@
         <section class="result">
           <h2>Your Result</h2>
           <div class="result-total">
-            <div class="score">76</div>
+            <div id="total-score" class="score">0</div>
             <div class="total">of 100</div>
           </div>
           <div class="result-text">
@@ -34,45 +47,9 @@
         </section>
         <section class="summary">
           <h2>Summary</h2>
-          <div class="metrics">
-            <div class="metric red">
-              <img src="./assets/images/icon-reaction.svg" alt="" />
-              <div class="metric-title">Reaction</div>
-              <div class="metric-score">
-                <span class="score">80</span>
-                <span class="divider">/</span>
-                <span class="total">100</span>
-              </div>
-            </div>
-            <div class="metric orange">
-              <img src="./assets/images/icon-memory.svg" alt="" />
-              <div class="metric-title">Memory</div>
-              <div class="metric-score">
-                <span class="score">92</span>
-                <span class="divider">/</span>
-                <span class="total">100</span>
-              </div>
-            </div>
-            <div class="metric green">
-              <img src="./assets/images/icon-verbal.svg" alt="" />
-              <div class="metric-title">Verbal</div>
-              <div class="metric-score">
-                <span class="score">61</span>
-                <span class="divider">/</span>
-                <span class="total">100</span>
-              </div>
-            </div>
-            <div class="metric">
-              <img src="./assets/images/icon-visual.svg" alt="" />
-              <div class="metric-title">Visual</div>
-              <div class="metric-score">
-                <span class="score">72</span>
-                <span class="divider">/</span>
-                <span class="total">100</span>
-              </div>
-            </div>
+          <div class="metrics" id="metrics">
+            <!-- populated with template -->
           </div>
-
           <button>Continue</button>
         </section>
       </article>
@@ -89,4 +66,6 @@
       >.
     </footer>
   </body>
+
+  <script type="module" src="./index.js"></script>
 </html>

@@ -18,11 +18,12 @@
   --cobaltBlue: hsl(var(--cobaltBlueHSL));
 
   --metricColor: var(--cobaltBlueHSL);
-
   --white: hsl(0, 0%, 100%);
   --paleBlue: hsl(221, 100%, 96%);
   --lightLavender: hsl(241, 100%, 89%);
-  --darkGrayBlue: hsl(224, 30%, 27%);
+
+  --darkGrayBlueHSL: 224 30% 27%;
+  --darkGrayBlue: hsl(var(--darkGrayBlueHSL));
 
   --lightSlateBlue: hsl(252, 100%, 67%);
   --lightRoyalBlue: hsl(241, 81%, 54%);
@@ -35,9 +36,11 @@
   --fontWeightExtraBold: 800;
   --circleSizeMax: 200px;
   --circleSizeMin: 140px;
+
+  --breakpoint: 736px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 736px) {
   :root {
     --circleSize: 140px;
   }
@@ -66,6 +69,7 @@ body {
 .attribution {
   font-size: 11px;
   text-align: center;
+  padding-block: 9px;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
@@ -89,7 +93,7 @@ main {
   align-items: center;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 736px) {
   main {
     padding-inline: 0;
   }
@@ -101,8 +105,24 @@ article {
   display: flex;
   border-radius: var(--borderRadius);
   background-color: var(--white);
+  box-shadow: 0px 30px 60px 0px hsl(var(--darkGrayBlueHSL) / 0.15);
   section {
     flex: 1;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  article {
+    flex-direction: column;
+    width: 100%;
+    section {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
+      &.summary {
+        border-radius: 0;
+      }
+    }
   }
 }
 
@@ -121,6 +141,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 24px;
   align-items: center;
   text-align: center;
   color: var(--lightLavender);
@@ -150,6 +171,7 @@ section {
   font-size: 32px;
   color: var(--white);
   font-weight: var(--fontWeightBold);
+  margin-block: 8px;
 }
 
 .summary {
@@ -163,6 +185,18 @@ section {
   padding-block: 28px 40px;
 }
 
+.green {
+  --metricColor: var(--greenTealHSL);
+}
+
+.red {
+  --metricColor: var(--lightRedHSL);
+}
+
+.orange {
+  --metricColor: var(--orangeYellowHSL);
+}
+
 .metric {
   display: flex;
   justify-content: space-between;
@@ -170,17 +204,58 @@ section {
   background-color: hsl(var(--metricColor) / 5%);
   padding: 16px;
   border-radius: 12px;
+  gap: 12px;
+}
+
+.metric-score {
+  margin-left: auto;
+  color: var(--darkGrayBlue);
+  display: flex;
+  text-align: center;
+  .divider,
+  .total {
+    opacity: 0.5;
+  }
+  .divider {
+    /* non-symmetrical for optical alignment */
+    padding-inline: 4px 2px;
+  }
+}
+
+/* Allows transition on the gradient values */
+@property --gradientStart {
+  syntax: "<color>";
+  initial-value: white;
+  inherits: false;
+}
+
+@property --gradientEnd {
+  syntax: "<color>";
+  initial-value: white;
+  inherits: false;
 }
 
 button {
-  background-color: var(--darkGrayBlue);
+  --gradientStart: var(--darkGrayBlue);
+  --gradientEnd: var(--darkGrayBlue);
+  background: linear-gradient(var(--gradientStart), var(--gradientEnd));
   border: none;
   padding: 16px;
   width: 100%;
   font-weight: var(--fontWeightBold);
   border-radius: 128px;
   color: var(--white);
-  &:hover {
-    background: linear-gradient(var(--lightSlateBlue), var(--lightRoyalBlue));
+  outline-offset: 4px;
+  outline-color: var(--lightRoyalBlue);
+  transition: --gradientStart 250ms ease-in-out, --gradientEnd 250ms ease-in-out;
+  &:hover,
+  &:focus-visible {
+    --gradientStart: var(--lightSlateBlue);
+    --gradientEnd: var(--lightRoyalBlue);
+    cursor: pointer;
+  }
+  &:active {
+    --gradientEnd: var(--lightRoyalBlue);
+    --gradientStart: var(--lightRoyalBlue);
   }
 }
